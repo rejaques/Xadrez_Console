@@ -14,21 +14,36 @@ namespace CHESS
 
                 while(!partida.Terminada)
                 {
-                    Console.Clear();
-                    Tela.ImprimirTabuleiro(partida.Tab);
+                    try
+                    {
+                        Console.Clear();
+                        Tela.ImprimirTabuleiro(partida.Tab);
 
-                    Console.Write("\nOrigem: ");
-                    Posicao origem = Tela.LerPosicao().ToPosicao();
+                        Console.WriteLine("\nTurno: "
+                            + partida.Turno
+                            + "\n\nAguardando jogada: "
+                            + partida.JogadorAtual);
 
-                    bool[,] posicoesPossiveis = partida.Tab.peca(origem).MovimentosPossiveis();
+                        Console.Write("\nOrigem: ");
+                        Posicao origem = Tela.LerPosicao().ToPosicao();
+                        partida.ValidarPosicaoOrigem(origem);
 
-                    Console.Clear();
-                    Tela.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
+                        bool[,] posicoesPossiveis = partida.Tab.peca(origem).MovimentosPossiveis();
 
-                    Console.Write("\nDestino: ");
-                    Posicao destino = Tela.LerPosicao().ToPosicao();
+                        Console.Clear();
+                        Tela.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
 
-                    partida.ExecutaMovimento(origem, destino);
+                        Console.Write("\nDestino: ");
+                        Posicao destino = Tela.LerPosicao().ToPosicao();
+                        partida.ValidarPosicaoDestino(origem, destino);
+
+                        partida.RealizaJogada(origem, destino);
+                    }
+                    catch (TabuleiroException e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.ReadLine();
+                    }
                 }     
             }
             catch (TabuleiroException e)

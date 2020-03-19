@@ -67,9 +67,7 @@ namespace xadrez
                 pos.Coluna -= 1;
             }
 
-
             return mat;
-
         }
     }
 }
