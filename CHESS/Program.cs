@@ -19,7 +19,13 @@ namespace CHESS
 
                     Console.Write("\nOrigem: ");
                     Posicao origem = Tela.LerPosicao().ToPosicao();
-                    Console.Write("Destino: ");
+
+                    bool[,] posicoesPossiveis = partida.Tab.peca(origem).MovimentosPossiveis();
+
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
+
+                    Console.Write("\nDestino: ");
                     Posicao destino = Tela.LerPosicao().ToPosicao();
 
                     partida.ExecutaMovimento(origem, destino);
