@@ -17,12 +17,7 @@ namespace CHESS
                     try
                     {
                         Console.Clear();
-                        Tela.ImprimirTabuleiro(partida.Tab);
-
-                        Console.WriteLine("\nTurno: "
-                            + partida.Turno
-                            + "\n\nAguardando jogada: "
-                            + partida.JogadorAtual);
+                        Tela.ImprimirPartida(partida);
 
                         Console.Write("\nOrigem: ");
                         Posicao origem = Tela.LerPosicao().ToPosicao();
