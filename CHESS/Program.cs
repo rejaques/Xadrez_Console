@@ -12,7 +12,18 @@ namespace CHESS
             {
                 PartidaXadrez partida = new PartidaXadrez();
 
-                Tela.ImprimirTabuleiro(partida.Tab);
+                while(!partida.Terminada)
+                {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.Tab);
+
+                    Console.Write("\nOrigem: ");
+                    Posicao origem = Tela.LerPosicao().ToPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.LerPosicao().ToPosicao();
+
+                    partida.ExecutaMovimento(origem, destino);
+                }     
             }
             catch (TabuleiroException e)
             {
