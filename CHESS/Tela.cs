@@ -15,13 +15,23 @@ namespace CHESS
             ImprimirPecasCapturadas(partida);
 
             Console.WriteLine("\n\nTurno: "
-                + partida.Turno
-                + "\n\nAguardando jogada: "
+                + partida.Turno);
+
+            if(!partida.Terminada)
+            {
+                Console.WriteLine("\n\nAguardando jogada: "
                 + partida.JogadorAtual);
 
-            if(partida.Xeque == true)
+                if (partida.Xeque == true)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            }
+            else
             {
-                Console.WriteLine("XEQUE!");
+                Console.WriteLine("XEQUEMATE!"
+                    + "\nVencedor"
+                    + partida.JogadorAtual);
             }
         }
 
