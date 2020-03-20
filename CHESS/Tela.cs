@@ -30,7 +30,7 @@ namespace CHESS
             else
             {
                 Console.WriteLine("XEQUEMATE!"
-                    + "\nVencedor"
+                    + "\nVencedor "
                     + partida.JogadorAtual);
             }
         }
