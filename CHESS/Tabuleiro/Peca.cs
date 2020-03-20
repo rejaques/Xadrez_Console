@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace tabuleiro
+﻿namespace tabuleiro
 {
     abstract class Peca
     {
@@ -22,6 +18,11 @@ namespace tabuleiro
         public void IncrementarMovimentos ()
         {
             QtdMovimentos++;
+        }
+
+        public void DecrementarMovimentos()
+        {
+            QtdMovimentos--;
         }
 
         public bool ExisteMovimentosPossiveis()

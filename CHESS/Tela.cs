@@ -18,6 +18,11 @@ namespace CHESS
                 + partida.Turno
                 + "\n\nAguardando jogada: "
                 + partida.JogadorAtual);
+
+            if(partida.Xeque == true)
+            {
+                Console.WriteLine("XEQUE!");
+            }
         }
 
         public static void ImprimirPecasCapturadas(PartidaXadrez partida)
